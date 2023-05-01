@@ -1,0 +1,23 @@
+
+How network & web works behind the scene?
+Setting up local environment..
+What is HTML
+Syntax
+Tags
+Style Attribute
+Style inline, internal , external (css file)
+
+input tags : Form - GET/POST button vs submit 
+
+Why HTML 5 arrived in market?
+HTML 5 - new input controls with basic validation like required, min, max, number..
+
+table - tr - td
+div - flex layout - box model : we did get to know cross browser issue ... 
+
+Javascript history 
+Javascript basics - variable, types available (number, string, bool, undefined, object)
+loops: if-else, for, while, do-while, switch
+
+ECMA ..in 2009 ECMA 5...in 2015 ECMA 6
+

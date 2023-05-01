@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="myDiv" style="height:200px; width:200px; background-color: yellow;"></div>
+    <br>
+    <button id="btn">Click Me</button>
+
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        // var refToBtn = document.getElementById("btn");
+        // refToBtn.onclick = DoSomething;
+
+        jQuery("#btn").click(DoSomething);
+
+        function DoSomething(){
+            // var refTomyDiv = 
+            //         document.getElementById("myDiv");
+            // refTomyDiv.style.backgroundColor = "red";
+
+          jQuery("#myDiv").css({"backgroundColor": "red"})
+        }
+    </script>
+</body>
+</html>

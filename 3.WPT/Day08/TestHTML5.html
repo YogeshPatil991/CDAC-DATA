@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo New Tags</title>
+</head>
+<body>
+    <table border="1" style="width:100%">
+         <tr>
+             <td colspan="3">
+               <header>
+                    <figure>
+
+                        <img src="logo.jpg"
+                        style="height: 100px;width: 100px;"
+                        alt = "my company logo">
+
+                        <figcaption>
+                            Bonaventure Systems
+                        </figcaption>   
+
+                    </figure>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp; 
+                   &lt;My company tagline &gt;
+               </header>
+             </td>
+         </tr>
+         <tr>
+             <td colspan="3">
+                 <table  style="width: 100%;text-align: center;">
+                     <tr>
+                         <td> <a href="home.html">Home</a> </td>
+                         <td> <a href="about.html">About</a> </td>
+                         <td> <a href="contact.html">Contact</a> </td>
+                         <td> <a href="login.html">Login</a> </td>
+                         <td> <a href="register.html">Register</a> </td>        
+                     </tr>
+                 </table>
+             </td>
+         </tr>
+         <tr>
+             <td style="width: 100px;">
+                 <center>
+                     <table style="height:300px">
+                         <tr>
+                             <td>
+                                 <a href="home.html">Home</a> 
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <a href="about.html">About</a> 
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <a href="contact.html">Contact</a> 
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <a href="login.html">Login</a> 
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <a href="register.html">Register</a> 
+                             </td>
+                         </tr>
+                     </table>
+                 </center>
+             </td>
+
+             <td>
+                <section>
+                    <h1>About Grand Parents</h1>
+                    <article>
+                        This is about characters only.
+                        This is about characters only.
+                        This is about characters only.
+                        This is about characters only.
+                    </article>
+                    <hr>
+                    <video src="sample.mp4" 
+                            style="height: 200px;width: 200px; border: 1px solid black;"  oncontextmenu
+                            ="HandleRClick(event)"
+                            controls autoplay></video>
+                </section>
+
+                <section id="myParentSection">
+                    <h2>About Parents</h2>
+                    <article>
+                        This is about characters only.
+                        This is about characters only.
+                        This is about characters only.
+                        This is about characters only.
+                    </article>
+                </section>
+
+                <section>
+                    <h3>About Me</h3>
+                    <article>
+                        This is about characters only.
+                        This is about characters only.
+                        This is about characters only.
+                        This is about characters only.
+                    </article>
+                </section>
+             </td>
+
+             <td style="width: 100px;">
+               <aside id="adHere">
+                    <!-- Content inside this tag 'aside' 
+                    will be ignored by SEO programs -->
+                    <a href="https://sunbeaminfo.in/"
+                    target="_blank">
+                   <img src="ad1.jpg" 
+                   alt="sunbeam cdac institute"
+                   style="height: 300px;width: 100px;">
+                  </a>
+               </aside>
+             </td>
+         </tr>
+         <tr>
+             <td colspan="3" style="text-align:center">
+               <footer>
+                <h2>Developed by Sunbeam, Karad</h2>
+               </footer>
+             </td>
+         </tr>
+    </table>
+    <script>
+
+        function HandleRClick(e)
+        {
+            e.preventDefault();
+            alert("Right click disabled.");
+        }
+        var refToadHere = 
+                document.getElementById("adHere");
+        var adContent = "";
+        var flag = 0;
+        setInterval(()=>{
+            if(flag == 0)
+            {
+               adContent =  `<a href="https://sunbeaminfo.in/"
+                                target="_blank">
+                            <img src="ad1.jpg" 
+                            alt="sunbeam cdac institute"
+                            style="height: 300px;width: 100px;">
+                         </a>`; 
+                flag = 1;
+            }
+            else
+            {
+                adContent =  `<a href="https://cdac.in/"
+                                target="_blank">
+                            <img src="ad2.jpg" 
+                            alt="cdac  acts institute"
+                            style="height: 300px;width: 100px;">
+                         </a>`; 
+                flag = 0;
+            }
+            refToadHere.innerHTML = adContent;
+        }, 5000);
+    </script>
+ </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="F1()">
+        <input type="text" id="txtName" value="sunbeam"
+                >
+    </button> -->
+
+    <button onclick="Draw()">Click Me</button>
+    <br>
+    <canvas style="height:700px; width:700px; border:1px solid black; background-color: yellow;" id="myCanvas">
+        your browser does not support HTML 5. pls upgrade.
+    </canvas> 
+
+    <script>
+    var x = 0;
+    var y = 0;
+    var x1 = 100;
+    var y1 = 100;
+    function Draw()
+        {
+            var refTomyCanvas =  
+                document.getElementById("myCanvas");
+
+            var refToDrawingContext=  
+                refTomyCanvas.getContext("2d");
+
+            x1 = x1 + 10 ;
+            y1 = Math.floor(Math.random() * 100);
+            refToDrawingContext.moveTo(x,y);
+            refToDrawingContext.lineTo(x1,y1);
+            refToDrawingContext.stroke();
+
+            x = x1;
+            y = y1;
+        }
+
+
+        // function Draw()
+        // {
+        //     var refTomyCanvas =  
+        //         document.getElementById("myCanvas");
+
+        //     var refToDrawingContext=  
+        //         refTomyCanvas.getContext("2d");
+
+        //     refToDrawingContext.moveTo(10,10);
+        //     refToDrawingContext.lineTo(100,100);
+        //     refToDrawingContext.stroke();
+        // }
+        function F1()
+        {
+           var txtName =  document.getElementById("txtName");
+           alert(txtName.value);
+        }
+        function HandleMe(e)
+        {
+            e.preventDefault();
+            alert("Right click disabled.");
+        }
+    </script>
+</body>
+</html>

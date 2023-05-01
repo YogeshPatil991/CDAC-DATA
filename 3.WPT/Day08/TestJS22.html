@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function F1()
+        // {
+        //     var counter = 100;
+        //     console.log(counter)
+        //     if(true)
+        //     {
+        //         var counter = counter + 10;
+        //         console.log(counter)
+        //     }
+        // }
+
+        // F1();
+
+
+        // const intRate  = 18;
+        // intRate = "abcd";//this line will throw an error
+
+
+        class Person
+        {
+            constructor(no , name, address)
+            {
+                this.No = no;
+                this.Name = name;
+                this.Address= address;
+            }
+
+            Print()
+            {
+                    console.log(
+                        this.No + 
+                        this.Name+ 
+                        this.Address)
+            }
+        }
+
+        // var p1 = new Person(1, "mahesh", "pune");
+
+        const p1 = new Person(1, "mahesh", "pune");
+        p1.Print();
+
+        // p1.Name = "Chetan";//this will work
+        // p1 = new Person(2, "nilesh", "chennai");//this wont
+
+        p1.Print();
+
+    </script>    
+</body>
+</html>

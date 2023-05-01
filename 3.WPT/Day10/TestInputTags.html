@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Inputs</title>
+</head>
+<body>
+    Name: <input type="text" id="txtName"><br>
+    Country: <select name="cmbCountry" id="cmbCountry">
+                <option value="-1">Select Your Country</option>
+                <option value="1">India</option>
+                <option value="2">UK</option>
+                <option value="3">USA</option>
+                <option value="4">Wakanda</option>
+             </select>
+    <br>
+    Gender: <input type="radio" value="M" name="radGender"> Male
+            <input type="radio" value="F" name="radGender"> Female
+            <input type="radio" value="O" name="radGender"> Other
+    <br>
+    Liking: <br>
+            <select name="cmbLikes" id="cmbLikes" multiple>
+                        <option value="11">Reading</option>
+                        <option value="22">Cricket</option>
+                        <option value="33">Travel</option>
+                        <option value="44">Trekking</option>
+                        <option value="55">Swimming</option>
+                        <option value="66">Doing nothing</option>
+                     </select>
+    <br>
+    Detailed Address: <br>
+    <textarea id="txtDetailedAddress" cols="30" rows="3"></textarea>
+    <br>
+    <input type="checkbox" id="chkAgree"> I agree to terms and conditions.
+
+    <br>
+    <br>
+    <button onclick="GetNPrint()">Print Selected Data</button>
+    <div id="myMessage">
+
+    </div>
+    <script>
+        function GetNPrint()
+        {
+           var refTomyMessage =   document.getElementById("myMessage");
+            
+           //Find TextBox by ID
+           var refTotxtName =   document.getElementById("txtName");
+           refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                                     `<h3>Name = ${refTotxtName.value}</h3>`;
+
+
+            //Find selected Value of Combobox
+           var refTocmbCountry =   document.getElementById("cmbCountry");
+           refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                                `<h3>Country = ${refTocmbCountry.value}</h3>`;
+          
+            //Find Selected Value of RadioButton
+            
+            var refToradGenderArray= document.getElementsByName("radGender");
+          
+          
+            for(var i = 0; i< refToradGenderArray.length; i++)
+            {
+                var oneGenderRadioButtonAtAtime = refToradGenderArray[i];
+                if(oneGenderRadioButtonAtAtime.checked)
+                {
+                    refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                                `<h3>Gender = ${oneGenderRadioButtonAtAtime.value}</h3>`;
+                    break;
+
+                }
+            }
+
+            //Find Selected Values of Multi select control
+            var refTocmbLikes =   document.getElementById("cmbLikes");
+            var allOptions = refTocmbLikes.options;
+            var likes = '';
+            for(var i = 0; i < allOptions.length; i++)
+            {
+                if(allOptions[i].selected)
+                {
+                    likes = likes + " - "+ allOptions[i].value;
+                }
+            }
+
+            refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                                `<h3>Likes = ${likes}</h3>`;
+            
+            
+            //Get value of Text Area
+            var refTotxtDetailedAddress = 
+                        document.getElementById("txtDetailedAddress");
+
+            refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                                `<h6>Detailed Address = 
+                                    ${refTotxtDetailedAddress.value}</h6>`;
+                        
+            //Find the checkbox for agreement and see the value
+            var refTochkAgree =  document.getElementById("chkAgree");
+            if(refTochkAgree.checked)
+            {
+                // refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                //                 `<h3>Does user agree = ${refTochkAgree.checked}</h3>`;
+
+                refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                                `<h3>User agreed to terms and conditions</h3>`;
+            }
+            else
+            {
+                refTomyMessage.innerHTML = refTomyMessage.innerHTML +   
+                                `<h3>User did not agree to terms and conditions</h3>`;
+            }
+            debugger;
+        }
+    </script>
+</body>
+</html>

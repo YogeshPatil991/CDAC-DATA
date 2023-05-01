@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btnStart" 
+           value="Click Me To Start" onclick="Start()">
+
+    <input type="button" id="btnStop" 
+           value="Click Me To Stop" onclick="Stop()">
+    <script>
+
+        var i = 0;
+        var tokenNo ;
+
+        var refTobtnStart = document.getElementById("btnStart");
+        var refTobtnStop = document.getElementById("btnStop");
+
+        refTobtnStop.disabled = "disabled"
+
+        function Start()
+        {
+            tokenNo=   window.setInterval(Print, 1000);
+            console.log("Queue Token No = " + tokenNo + " ***********")
+            refTobtnStart.disabled = "disabled";
+            refTobtnStop.disabled = null;
+        }
+
+        function Stop()
+        {
+            window.clearInterval(tokenNo);
+            refTobtnStart.disabled = null;
+            refTobtnStop.disabled = "disabled";
+        }
+
+        function Print()
+        {
+            
+            i = i + 1;
+            console.log(i);
+        }
+        
+    </script>    
+</body>
+</html>

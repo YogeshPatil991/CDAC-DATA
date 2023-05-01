@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div style="color:white; opacity:0 ;"> X : </div><br>
+    <input type="text" id="txtX"><br>
+    Y : <input type="text" id="txtY"><br>
+    Result : <input type="text" id="txtResult"><br>
+    <input type="button" value="Add" onclick="Add()">
+
+    <input type="button" value="TryOut" onclick="TryOut()">
+    <input type="button" value="Refresh" onclick="Refresh()">
+    
+    <script>
+        var refTotxtX = document.getElementById("txtX");
+        var refTotxtY = document.getElementById("txtY");
+        var refTotxtResult = document.getElementById("txtResult");
+
+
+
+        function Add(){
+            var x = parseInt(refTotxtX.value);
+            var y = parseInt(refTotxtY.value);
+            var result = x+y;
+            refTotxtResult.value = result;
+        }
+
+        function TryOut()
+        {
+            debugger;//Let us evaluate Maths Functions
+
+           // console.log(Math.floor(10.2)); //prints 10;
+
+            var randomNo =   Math.random(); //randomNo is between 0 & 1
+
+            var calcualtedNo = randomNo * 10;
+            console.log(randomNo);
+            console.log(calcualtedNo);
+            console.log(Math.floor(calcualtedNo));
+        }
+
+        function Refresh(){
+            window.location.href = "TestJS17.html";
+        }
+    </script>
+</body>
+</html>

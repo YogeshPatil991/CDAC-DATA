@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Click Me" onclick="Change()">
+    <br>
+    <br>
+    <div id="myDiv" style="height: 200px; width: 200px;background-color: yellow;">
+
+    </div>    
+
+    <script>
+        function Change()
+        {
+            var refTomyDiv = document.getElementById("myDiv");
+            debugger;
+            if(refTomyDiv.style.backgroundColor=="yellow")
+            {
+                refTomyDiv.style.backgroundColor="red";
+            }
+            else
+            {
+                refTomyDiv.style.backgroundColor="yellow";
+            }
+        }
+    </script>
+</body>
+</html>

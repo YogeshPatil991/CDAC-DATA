@@ -1,0 +1,10 @@
+MS XML format...
+"<?xml ?>
+<employees>
+<employee>
+	<no>1</no>
+	<name>mahesh</name>
+	<age>42</age>
+	<address>pune</address>
+</employee>
+</employees>"

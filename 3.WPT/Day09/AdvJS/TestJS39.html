@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data = null;
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                debugger;
+                console.log(this.responseText);
+            }
+        });
+
+        xhr.open("GET", "https://hotels4.p.rapidapi.com/locations/search?query=new%20york&locale=en_US");
+        xhr.setRequestHeader("X-RapidAPI-Key", "ac1f99b1b0msh21103b8b4be0e31p1fcbe1jsn8aba0b2cf9ff");
+        xhr.setRequestHeader("X-RapidAPI-Host", "hotels4.p.rapidapi.com");
+
+        xhr.send(data);
+            </script>
+        </body>
+        </html>

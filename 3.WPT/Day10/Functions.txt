@@ -1,0 +1,25 @@
+https:// jquery.com
+
+click
+mouseOver
+mouseOut
+unBind
+val
+html
+css
+
+Selectors:
+$(#txtName) means select by ID txtName
+$("input") means select by tagName i.e. input
+$(".AStyle") means select by ClassName AStyle
+$("tr:even") even odd selectors
+$("input[title=""]) attribute selector
+input[title^="k"] input tags with title starting with k
+input[title$="k"] input tags with title ending with k
+input[title*="k"] input tags with title containing k    
+
+https://getbootstrap.com/
+
+https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css
+
+https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js

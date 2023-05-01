@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+    <script>
+        function F11(msg){
+            debugger;
+            console.log("10 is greater than 7");
+        }
+
+        function F12(){
+            console.log("its miracle!");
+        }
+
+        
+        function Check(resolve, reject)
+        {
+            debugger;
+            if(10>7)
+            {
+                resolve("hi");
+            }
+            else
+            {
+                reject();
+            }
+        }
+
+        debugger;
+        var promise = new Promise(Check);
+
+        promise.then(F11).catch(F12)
+
+     
+        debugger;
+        //Check(F11, F12);
+    </script>
+</body>
+</html>

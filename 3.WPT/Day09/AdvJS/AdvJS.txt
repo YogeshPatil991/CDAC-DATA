@@ -1,0 +1,13 @@
+
+	localStorage
+	sessionStorage
+	JSON data format - vs - XML data format 
+	XmlHttpRequest Object for AJAX call
+	
+	jQuery Introduction
+	
+	CSS Classes and variations
+	Bootstrap Theory & classes
+
+	
+	

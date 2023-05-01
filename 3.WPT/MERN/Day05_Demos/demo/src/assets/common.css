@@ -1,0 +1,48 @@
+.AStyle{
+ color: red;
+}
+
+.header{
+    height:100px;
+    width: 100%;
+    background-color: orangered;
+}
+
+.footer{
+    height:100px;
+    width: 100%;
+    background-color: green;
+}
+
+.feed
+{
+    height: 500px; 
+    width: 500px;
+    border: 2px blue solid;
+}
+
+.usersContainer
+{
+    border: 2px blue solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.userContent
+{
+    height: 300px;
+    width: 300px; 
+    border: 1px blue solid;
+    padding: 3px;
+    margin: 5px;
+    text-align: center;
+}
+
+.userPhoto
+{
+    height: 100px;
+    width: 100px; 
+    border: 1px black dashed;
+}

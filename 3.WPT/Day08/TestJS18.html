@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test JS</title>
+</head>
+<body>
+    <script>
+
+        //-----------------------------------------
+        //----------------writing normal function-----
+        //-----------------------------------------
+        // function SayHi(name)
+        // {
+        //     console.log("Hi " + name);
+        // }
+
+        //-----------------------------------------
+        //-------------strore function in variable
+        //-----------------------------------------
+
+        // var SayHi = function(name)
+        //                 {
+        //                     console.log("Hi " + name);
+        //                 }
+
+        // SayHi("mahesh");
+
+        //-----------------------------------------
+        //-------------function calling function
+        //-----------------------------------------
+
+        // function Check()
+        // {
+        //     if(10>2)
+        //     {
+        //       OnSuccess();
+        //     }
+        //     else
+        //     {
+        //       OnFailure();    
+        //     }
+        // }
+
+        // function OnSuccess()
+        // {
+        //     console.log("True");
+        //     //imagine 1lac line logic
+        // }
+        // function OnFailure()
+        // {
+        //     console.log("False");
+        //     //imagine 1lac line logic
+        // }
+
+        //-----------------------------------------
+        //-------------function accepting function
+        //-----------------------------------------
+
+        // function Check(p1, p2)
+        // {
+        //     if(10>2)
+        //     {
+        //       p1();
+        //     }
+        //     else
+        //     {
+        //       p2();    
+        //     }
+        // }
+
+        // function ABC()
+        // {
+        //     console.log("True");
+        //     //imagine 1lac line logic
+        // }
+        // function XYZ()
+        // {
+        //     console.log("False");
+        //     //imagine 1lac line logic
+        // }
+        // debugger;
+        // Check(ABC, XYZ);
+
+
+        //-----------------------------------------
+        //-------------function returning function
+        //-----------------------------------------
+
+        function GetMeSomethingToExecute(flag)
+        {
+            var someFunction  = undefined;
+            if(flag==true)
+            {
+                someFunction = function()
+                                { 
+                                console.log("success"); 
+                                }
+            }
+            else
+            {
+                someFunction = function()
+                                { 
+                                console.log("failure"); 
+                                }
+            }
+
+            return someFunction;
+        }
+
+        // debugger;
+        // var f1 = GetMeSomethingToExecute(true);
+        // f1();
+
+        var f1 = GetMeSomethingToExecute(false);
+        f1();
+
+    </script>
+</body>
+</html>

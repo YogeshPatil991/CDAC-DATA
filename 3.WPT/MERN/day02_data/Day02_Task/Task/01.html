@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+      <div style="display: flex; flex-direction: row;">
+        
+        <div>
+            <br><br><br><br>
+            <table border="1" id="itemsTable" style="height: 300px;width:400px">
+            </table>
+        </div>
+        <div >
+            <div>Total</div>
+            <div id="total"></div>
+                <hr>
+            <h1>You purchased:</h1>
+            <table border="1" id="purchasedItemsTable" style="width:400px">
+            </table>
+        </div>
+      </div>
+     
+
+      </div>
+        <script>
+            var total = 0;
+           var refToTable =  document.getElementById("itemsTable");
+           var refTopurchasedItemsTable =
+                      document.getElementById("purchasedItemsTable");
+           
+           var itemsList = [{No : 11, Name: "Item1", Price: 100 },
+                            {No : 12 , Name: "Item2", Price: 200 },
+                            {No : 13, Name: "Item3", Price: 300 }];
+
+            var purchaedItemsList = [];
+            itemsList.map(item=>
+            {
+                var row = `<tr>
+                                <td>${item.No}</td>
+                                <td>${item.Name}</td>
+                                <td>${item.Price} INR</td>
+                                <td>
+                    <button onclick="Add(${item.No})">  Add To Cart </button>
+                                </td>
+                            </tr>`;
+                refToTable.innerHTML=  refToTable.innerHTML+ row;
+            })
+
+            function Add(itemNo)
+            {
+                var purchasedItem = undefined;
+
+                for (i=0;i<itemsList.length; i++)
+                {
+                    var item = itemsList[i];
+                    if(item.No == itemNo)
+                    {
+                       purchasedItem = item;
+                       break;
+                    }
+                }
+                var isItemAlreadyPurchased = false;
+                for(var j = 0; j<purchaedItemsList.length; j++)
+                       {
+                         if(purchaedItemsList[j].No==item.No)
+                         {
+                            isItemAlreadyPurchased = true;
+                            break;
+                         }
+                         else
+                         {
+                           isItemAlreadyPurchased = false;
+                         }
+                       }
+
+                    if(isItemAlreadyPurchased==false)
+                    {
+                        var pi = 
+                                    {
+                                        No : item.No, 
+                                        Name: item.Name, 
+                                        Price: item.Price, 
+                                        Quantity : 1 
+                                    };
+                        purchaedItemsList.push( pi)
+                    }
+                    else
+                    {
+                        debugger;
+                        for(k=0;k<purchaedItemsList.length;k++)
+                        {
+                            if(purchaedItemsList[k].No==item.No)
+                            {
+                                var itemWhoseCountNeedsToBeIncreaed =
+                                        purchaedItemsList[k];
+                                itemWhoseCountNeedsToBeIncreaed.Quantity =
+                                itemWhoseCountNeedsToBeIncreaed.Quantity + 1; 
+                                break;
+                            }
+                        }
+                    }
+               refTopurchasedItemsTable.innerHTML = "";
+               for(m =0; m< purchaedItemsList.length ; m++)
+               {
+               
+                var individualItemTotal =
+                purchaedItemsList[m].Quantity *purchaedItemsList[m].Price;
+
+                total = total + individualItemTotal;
+                var purchaedItemRow = 
+                `<tr>
+                        <td>${purchaedItemsList[m].No}</td>
+                        <td>${purchaedItemsList[m].Name}</td>
+                        <td>${purchaedItemsList[m].Price} INR</td>
+                        <td>${purchaedItemsList[m].Quantity}</td>
+                    </tr>`
+                refTopurchasedItemsTable.innerHTML = 
+                refTopurchasedItemsTable.innerHTML + purchaedItemRow;
+               }
+
+               var refToTotal = document.getElementById("total");
+               refToTotal.innerText = total + " INR";
+            }
+        </script>
+</body>
+</html>

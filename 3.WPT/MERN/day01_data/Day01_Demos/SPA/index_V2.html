@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sunbeam Website</title>
+</head>
+<body>
+       <div style="height: 50px;width:100%;background-color: yellow;"></div>
+        <hr>
+        <a onclick="LoadUI('home','maincontainer')">Home</a> | 
+        <a onclick="LoadUI('about','maincontainer')">About Us</a> | 
+        <a onclick="LoadUI('contact','maincontainer')">Contact Us</a> | 
+        <hr>
+            <div id="maincontainer">
+            </div>
+        <br><br><br>
+        <div style="height: 50px;width:100%;background-color: orangered;">          
+        </div>
+        <script src="Home.js"></script>
+        <script src="About.js"></script>
+        <script src="Contact.js"></script>
+        <script src="index.js"></script>
+        <script>
+            LoadUI('home','maincontainer');
+        </script>
+
+</body>
+</html>

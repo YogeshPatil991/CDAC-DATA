@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .contentDiv{
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .contentImage{
+            height: 200px;
+            width: 200px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="GetDataFromServer()">
+        Click Me To Get Data From Server
+    </button>
+    <br>
+    <hr>
+    <div id="myContainer" style="display: flex; border: 2px solid black;flex-wrap: wrap;justify-content: center;">
+    </div>    
+  
+
+    <script>
+        
+        function GetDataFromServer()
+        {
+            debugger;
+            var refToMyContainer = document.getElementById("myContainer");
+            var helperToCallServer = new XMLHttpRequest;
+           
+            helperToCallServer.onreadystatechange = (()=>{
+                if(helperToCallServer.readyState==4 && helperToCallServer.status==200)
+                        {
+                        //    var responseReceived = 
+                        //         helperToCallServer.responseText;
+
+                            var responseReceivedInJSOnFormat =
+                                   JSON.parse(helperToCallServer.responseText);
+                            var people = responseReceivedInJSOnFormat.data;
+
+                            for(var i=0;i<people.length; i++)
+                            {
+                                var person = people[i];
+         
+                                var content = `<div id="${person.id}" class="contentDiv">
+                                <img src="${person.avatar}" class="contentImage">
+                                <h2>${person.first_name} 
+                                    ${person.last_name}</h2>
+                                <h3>${person.email}</h3>
+                            </div>`
+                                 refToMyContainer.innerHTML = refToMyContainer.innerHTML+content ;
+                                 console.log(person)
+                            }
+                        }
+            
+            })
+                
+
+            helperToCallServer.open("GET","https://reqres.in/api/users?page=2");
+
+            helperToCallServer.send();
+        }
+    </script>    
+</body>
+</html>

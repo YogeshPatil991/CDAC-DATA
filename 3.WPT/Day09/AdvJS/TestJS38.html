@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test XHR</title>
+</head>
+<body>
+    <button onclick="GetDataFromSomeServer()">
+            Get Data From Some Server</button>
+    
+    <hr>
+    <div id="container" 
+         style="background-color: black;border: 1px solid white;display: flex; flex-direction: row;flex-wrap: wrap;justify-content: space-around">
+
+       
+
+    </div>
+    
+
+    <script>
+        function GetDataFromSomeServer()
+        {
+            debugger;
+        var helperToCallServer = new XMLHttpRequest()   ;
+        //readyState = 0...Starting value of progress
+        helperToCallServer.onreadystatechange = ()=>{
+             //readyState = 4...we received a reply
+             //and status ==200 means successful reply 
+            if(helperToCallServer.readyState == 4 &&
+                helperToCallServer.status == 200)
+            {
+                debugger;
+                var dataReceived = 
+                JSON.parse(helperToCallServer.responseText)
+
+                var users = dataReceived.data;//is an array
+                var refTocontainer = 
+                document.getElementById("container");
+
+                users.map((user)=>{
+                    var userDiv = 
+                            ` <div style="height: 200px; width:200px;border: 1px solid black; background-color: tomato;padding: 10px;text-align: center;">
+                                <img src="${user.avatar}" style="height: 100px;width:100px;border: 1px solid black;">
+                                <h2>${user.first_name} ${user.last_name}</h2>
+                                <h6>${user.email}</h6> </div>`;
+                    
+                    refTocontainer.innerHTML = refTocontainer.innerHTML + userDiv
+                });            }
+        };
+
+        helperToCallServer.open("GET",
+                               "https://reqres.in/api/users");
+        //readyState = 1...u created a packet
+        
+        helperToCallServer.send();
+        //readyState = 2...u have send a packet
+
+        //readyState = 3...u r waiting..for reply
+        }
+    </script>
+</body>
+</html>

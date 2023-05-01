@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test ES 5 way of Objects , classes</title>
+</head>
+<body>
+    <script>
+        //1: Literal Syntax of Class / Object Creation
+
+        // var p1 = {
+        //             No : 10,
+        //             Name: "Mahesh",
+        //             Address: "Pune",
+        //             Print: function()
+        //                             {
+        //                                 debugger;
+        //                             console.log(this.Name);
+        //                             }
+        //          };
+
+        // debugger;
+        // p1.Print();
+
+        //-----------------------------------------
+
+        //2: Constructor Function Syntax of Class Creation
+         
+        // var Person = function(no, name, address)
+        //                 {
+        //                     this.No = no;
+        //                     this.Name = name;
+        //                     this.Address= address;
+
+        //                     this.Print = function()
+        //                     {
+        //                     //debugger;
+        //                     console.log(this.No + 
+        //                                 this.Name+ 
+        //                                 this.Address)
+        //                     }
+        //                 }
+        // //debugger;
+        // var p1 = new Person(1, "mahesh", "pune");
+        // p1.Print();
+
+        // var p2 = new Person(2, "nilesh", "chennai");
+        // p2.Print();
+
+         //-----------------------------------------
+
+        //3: ES6: Class Keyword  Syntax of Class Creation
+            
+        class Person
+        {
+            constructor(no , name, address)
+            {
+                this.No = no;
+                this.Name = name;
+                this.Address= address;
+            }
+
+            Print()
+            {
+                    console.log(
+                        this.No + 
+                        this.Name+ 
+                        this.Address)
+            }
+        }
+
+        //debugger;
+        // var p1 = new Person(1, "mahesh", "pune");
+        // p1.Print();
+
+        // var p2 = new Person(2, "nilesh", "chennai");
+        // p2.Print();
+
+        class Employee extends Person
+        {
+            constructor(no , name, address, deptname)
+            {
+                super(no, name,address);
+                this.DName = deptname;
+            }
+
+            PrintAll()
+            {
+                debugger;
+                this.Print();
+                console.log(this.DName);
+            }
+
+        }
+
+        debugger;
+        var e1 = 
+            new Employee(2, "nilesh", "chennai", "IT");
+        e1.PrintAll();
+
+    </script>
+</body>
+</html>

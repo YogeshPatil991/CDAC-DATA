@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="myDiv" style="height:200px; width:200px; background-color: yellow;"></div>
+    <br>
+    <button id="btn">Click Me</button>
+
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $("#btn").click( function (){
+          $("#myDiv").css({"backgroundColor": "red"})
+        });
+
+       
+    </script>
+</body>
+</html>

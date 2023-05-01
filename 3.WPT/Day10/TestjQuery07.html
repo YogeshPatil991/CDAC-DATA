@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="myDiv" style="height:200px; width:200px; background-color: yellow;"></div>
+   
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+
+        $("#myDiv").mouseover(function (){
+          $(this).css({"backgroundColor": "red"})
+        });
+
+        $("#myDiv").mouseout(function (){
+          $(this).css({"backgroundColor": "yellow"})
+        });
+
+
+        // $("#myDiv").mouseover(function (){
+        //   $("#myDiv").css({"backgroundColor": "red"})
+        // });
+
+        // $("#myDiv").mouseout(function (){
+        //   $("#myDiv").css({"backgroundColor": "yellow"})
+        // });
+
+       
+    </script>
+</body>
+</html>

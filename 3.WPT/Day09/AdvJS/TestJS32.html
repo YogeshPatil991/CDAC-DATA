@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Storage</title>
+</head>
+<body>
+    <h1>Second Page</h1>
+    <a href="TestJS31.html">Go to Previous Page</a>
+    <br>
+    <input type="button" value="Get the Information" onclick="Fetch()"><br><br>
+    <input type="button" value="Clear the storage" onclick="Clear()"><br><br>
+
+    <div id="myDiv" style="height:200px; width:200px; border:1px black solid">
+
+    </div>
+
+    <script> 
+    
+    function Clear()
+    {
+        sessionStorage.removeItem("CName");
+        sessionStorage.removeItem("CBooks");
+    }
+    function Fetch()
+        {
+            var refTomyDiv = 
+                document.getElementById("myDiv");
+          
+            var cname =  sessionStorage.getItem("CName");
+            var cbooks = sessionStorage.getItem("CBooks");
+
+            var content = `<h1>Name Fetched = ${cname}</h1><h1>Books Fetched = ${cbooks}</h1>`;
+
+            refTomyDiv.innerHTML = content;
+    
+        }
+        
+        </script>
+</body>
+</html>

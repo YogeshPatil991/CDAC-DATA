@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test JSON</title>
+</head>
+<body>
+    <script>
+        var emp = {
+                    "No": 1,
+                    "Name":"Mahesh",
+                    "Address": {
+                                "City": "Pune",
+                                "State":"Maharashtra",
+                                "PinCode":411038
+                               }
+                  };
+
+        console.log(emp);
+          var message = `Welcome ${emp.Name} from ${emp.Address.City}`;
+            console.log(message);
+    </script>
+</body>
+</html>

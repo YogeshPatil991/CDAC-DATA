@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+    <script>
+        function F11(data){
+            debugger;
+            console.log(data);
+        }
+
+        function F12(error){
+            debugger;
+            console.log(error);
+        }
+
+        
+        function Check(resolve, reject)
+        {
+            debugger;
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState==4)
+                 {
+                   if(helper.status == 200)
+                   {
+                    var result =  
+                        JSON.parse(helper.responseText);
+                    resolve(result);
+                   }
+                   else
+                   {
+                    reject("Call To Server Failed!")
+                   }
+                 }
+
+            }
+            helper.open("GET",
+                        "https://reqres.in/api/users");
+            helper.send();
+        }
+
+        debugger;
+        var promise = new Promise(Check);
+
+        promise.then(F11).catch(F12)
+
+     
+        debugger;
+        //Check(F11, F12);
+    </script>
+</body>
+</html>

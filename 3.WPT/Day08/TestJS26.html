@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+        <!-- <input type="button" 
+               value="I am button 1" 
+               id="btn" 
+               onclick="HandleMe()"> -->
+
+        <input type="button" 
+               value="I am button 1" 
+               id="btn" 
+               onclick="HandleMe(event)">
+        <script>
+
+            function HandleMe(e)
+            {
+                alert(e.target.value);
+            }
+
+            // function HandleMe()
+            // {
+            //     var refToButton = 
+            //         document.getElementById("btn");
+            //     alert(refToButton.value)
+            // }
+        </script>
+</body>
+</html>

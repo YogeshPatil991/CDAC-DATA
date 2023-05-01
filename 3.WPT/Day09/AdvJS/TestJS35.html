@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test JSON</title>
+</head>
+<body>
+    No: <input type="text" id="txtNo"><br>
+    Name: <input type="text" id="txtName"><br>
+    City: <input type="text" id="txtCity"><br>
+    State: <input type="text" id="txtState"><br>
+    Pincode: <input type="text" id="txtPincode"><br>
+    <input type="button" value="Do Something" onclick="DoSomething()">
+<script>
+    function DoSomething(){
+
+        var refToTxtNo = document.getElementById("txtNo");
+        var refToTxtName = 
+                        document.getElementById("txtName");
+        var refToTxtCity = 
+                        document.getElementById("txtCity");
+        var refToTxtState = 
+                    document.getElementById("txtState");
+        var refToTxtPinCode =
+                    document.getElementById("txtPincode");
+
+        var emp = {
+                    "No": parseInt(refToTxtNo.value),
+                    "Name":refToTxtName.value,
+                    "Address": {
+                                "City": 
+                                    refToTxtCity.value
+                               }
+                  };
+
+        console.log(emp);
+        
+        var dataInStringFormat = 
+                  JSON.stringify(emp);
+
+        console.log(dataInStringFormat);
+        //   var message = `Welcome ${emp.Name} from ${emp.Address.City}`;
+        //   console.log(message);
+    }       
+</script>
+</body>
+</html>

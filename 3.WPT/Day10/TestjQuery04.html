@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .AStyle{
+            height:200px; 
+            width:200px; 
+            background-color: yellow;
+        }
+
+        .BStyle{
+            height:100px; 
+            width:100px; 
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <section id="section1" class="BStyle">
+        Section No 1
+    </section>
+    <br>
+
+    <div id="myDiv1" class="AStyle">Div No 1</div>
+    <br>
+
+    <div id="myDiv2" class="BStyle">Div No 2</div>
+    <br>
+
+    <div id="myDiv3" class="AStyle">Div No 3</div>
+    <br>
+
+    <div id="myDiv4" class="BStyle">Div No 4</div>
+    <br>
+    <button id="btn">Click Me</button>
+
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $("#btn").click( function (){
+          //$("#myDiv2").css({"backgroundColor": "green"})
+          //$("div").css({"backgroundColor": "green"})
+        //   $(".AStyle").css({"backgroundColor": "green"})
+        //$(".BStyle").css({"backgroundColor": "green"})
+         $("div.BStyle").css({"backgroundColor": "green"})
+        });
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Validation</title>
+</head>
+<body>
+    <table border="1" style="width: 700px">
+        <tr>
+            <td>
+                Enter Name
+            </td>
+            <td>
+                <input type="text" id="txtName">
+            </td>
+            <td>
+                <div style="color:red; width: 300px;" 
+                     id="myDiv">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <input type="button" value="Click Me"
+                      onclick="Validate()">
+            </td>
+        </tr>
+    </table>
+    <div style="color:green; font-size: larger;" 
+         id="divMessage">
+
+    </div>
+
+    <script>
+        function Validate()
+        {
+            var refTotxtName = 
+                    document.getElementById("txtName");
+            var refTomyDiv = 
+                    document.getElementById("myDiv");
+            var refTodivMessage = 
+                    document.getElementById("divMessage");
+            
+            if(refTotxtName.value=="")
+            {
+                refTomyDiv.innerText = "Name is required.";
+                refTodivMessage.innerText = "";
+            }  
+            else
+            {
+                refTomyDiv.innerText = "";
+                refTodivMessage.innerText = 
+                           "Hi " +refTotxtName.value ;
+            }
+                
+        }
+    </script>
+</body>
+</html>

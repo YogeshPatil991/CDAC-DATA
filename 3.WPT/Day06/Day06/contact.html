@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="mycommonStyles.css">
+    <style>
+
+        .contactTable{
+            border-width: 0px;
+        }
+        table td{
+            border: 1px solid black;
+        }
+
+        table{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3">
+                <div style="height: 100px;width: 100%;background-color: orangered;">
+                    <img src="images/logo.jpg" style="height: 100px;width: 100px;">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a href="home.html" >Home</a> | 
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html" >Contact Us</a> | 
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px;text-align: center;">
+                <br><br>
+                <a href="home.html" >Home</a> 
+                <br><br> 
+                <a href="about.html">About Us</a> 
+                <br><br>
+                <a href="contact.html" >Contact Us</a>
+                <br><br>
+            </td>
+            <td>
+                <table class="contactTable">
+                    <tr>
+                        <td class="contactTable">No:</td>
+                        <td class="contactTable">
+                            <input type="number" name="eno" required="required" 
+                            min="1" max="100" 
+                            class="myinputStyle">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td  class="contactTable">Name:</td>
+                        <td class="contactTable">
+                            <input type="text" name="ename"
+                            required="required"
+                            class="myinputStyle">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td  class="contactTable">Age:</td>
+                        <td class="contactTable">
+                            <input type="number" name="eage"
+                            required="required" min="18" max="60"
+                            class="myinputStyle">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class="contactTable">EMail:</td>
+                        <td class="contactTable">
+                            <input type="email" name="email"
+                            required="required" 
+                            class="myinputStyle">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class="contactTable">Color:</td>
+                        <td class="contactTable">
+                            <input type="color" name="somecolor" 
+                            class="myinputStyle"
+                            style="border-style:dotted;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td  class="contactTable">DOB:</td>
+                        <td class="contactTable">
+                            <input type="date" name="dob" 
+                            class="myinputStyle">
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="contactTable"> 
+                            <input type="submit" 
+                                value="Send Details" >
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 100px;text-align:center;">
+                Ad here
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                    <div style="height: 50px;width: 100%;
+                                background-color: black;
+                                color: white;
+                                text-align: center;
+                                font-size: larger;
+                                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;vertical-align: middle;">
+                                <br>
+                                Developed by Sunbeam
+                    <!-- <marquee>Developed by Sunbeam</marquee>
+                     -->
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

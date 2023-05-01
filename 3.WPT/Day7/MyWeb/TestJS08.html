@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Validation</title>
+</head>
+<body>
+    <table border="1" style="width: 700px">
+        <tr>
+            <td>
+                Enter Name
+            </td>
+            <td>
+                <input type="text" id="txtName">
+            </td>
+            <td>
+                <div style="color:red; width: 300px;" 
+                     id="myErrorDivForName">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Address
+            </td>
+            <td>
+                <input type="text" id="txtAddress">
+            </td>
+            <td>
+                <div style="color:red; width: 300px;" 
+                     id="myErrorDivForAddress">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <input type="button" value="Click Me"
+                      onclick="Validate()">
+            </td>
+        </tr>
+    </table>
+    <!-- <script src="validation.js"></script> -->
+    <script src="validation.min.js"></script>
+    <script>
+        function Validate()
+        {
+            debugger;
+            CheckEmpty("txtName", "myErrorDivForName",
+                        "Name is required.");
+
+            CheckEmpty("txtAddress",        
+                        "myErrorDivForAddress",
+                        "Address is required.");
+            
+        }
+    </script>
+</body>
+</html>

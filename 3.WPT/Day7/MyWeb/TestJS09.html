@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Validation</title>
+</head>
+<body>
+    <table border="1" style="width: 700px">
+        <tr>
+            <td>
+                Enter Name
+            </td>
+            <td>
+                <input type="text" id="txtName">
+            </td>
+            <td>
+                <div style="color:red; width: 300px;" 
+                     id="myErrorDivForName">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Address
+            </td>
+            <td>
+                <input type="text" id="txtAddress">
+            </td>
+            <td>
+                <div style="color:red; width: 300px;" 
+                     id="myErrorDivForAddress">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Enter Age
+            </td>
+            <td>
+                <input type="text" id="txtAge">
+            </td>
+            <td>
+                <div style="color:red; width: 300px;" 
+                     id="myErrorDivForAge">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <input type="button" value="Click Me"
+                      onclick="Validate()">
+            </td>
+        </tr>
+    </table>
+   
+    <script>
+
+        function Validate()
+        {
+            //debugger;
+            var isNameEmpty =  CheckEmpty("txtName", "myErrorDivForName",
+                                          "Name is required.");
+            debugger;
+            if(isNameEmpty==false)//is Name has a value ..
+            {
+                    //let us check for if it is a number?
+             var  isNameCharacter =   CheckCharacter("txtName",  
+                                            "myErrorDivForName",
+                                            "Name needs to be a character.");
+
+                if(isNameCharacter==true)
+                {
+                    var lengthExpected = 10;
+                    var errorMessage = 
+                            "Name is expected to be of minimum size "+ lengthExpected;
+                    var isLengthOk =  CheckLength("txtName",  
+                                        "myErrorDivForName",
+                                        errorMessage,
+                                        lengthExpected);
+
+                    /// You may check isLengthOk and proceed for 
+                    ///further checks....
+                }
+
+            }
+
+            var isAddressEmpty =  CheckEmpty("txtAddress",        
+                                            "myErrorDivForAddress",
+                                            "Address is required.");
+                            
+
+            var isAgeEmpty =  CheckEmpty("txtAge",        
+                                            "myErrorDivForAge",
+                                            "Age is required.");
+            
+        }
+
+        function CheckLength(id,errorDivId, erroMessage, lengthExpected)
+        {
+            var refToControl = document.getElementById(id);
+          
+            var refToErrorControl =  
+                    document.getElementById(errorDivId);
+
+            var characterLength = refToControl.value.length;
+
+            var isLengthOk = false;
+
+            if(characterLength>=lengthExpected)
+            {
+                refToErrorControl.innerText = ""
+                isLengthOk = true;
+            }
+            else
+            {
+                refToErrorControl.innerText = erroMessage;
+                isLengthOk = false;
+            }
+
+            return isLengthOk;
+        }
+
+        function CheckCharacter(id,errorDivId, erroMessage)
+
+        {
+            debugger;
+            var refToControl = document.getElementById(id);
+            var refToErrorControl =  
+                    document.getElementById(errorDivId);
+
+            var isCharacter = isNaN(refToControl.value);
+
+            if(isCharacter==false)
+            {
+                refToErrorControl.innerText = erroMessage;
+            }
+            else
+            {
+                refToErrorControl.innerText = ""
+            }
+
+            return isCharacter;
+        }
+
+        function CheckEmpty(id, errorDivId, erroMessage)
+        {
+            var refToControl = 
+                    document.getElementById(id);
+            
+            //Convert String into an Array   
+            //var array = Array.from( refToControl.value);
+            //Iterate Array for values using May be for loop
+
+            // var obj = new RegExp();
+            // var str = "";
+            // str.match()
+
+            
+            debugger;
+            var refToErrorControl = 
+                    document.getElementById(errorDivId);
+            var isEmpty = true;
+
+            if(refToControl.value=="")
+            {
+                refToErrorControl.innerText = erroMessage;
+                isEmpty = true;
+            }  
+            else
+            {
+                refToErrorControl.innerText = "";
+                isEmpty = false;
+            }
+            return isEmpty;
+        }
+    </script>
+</body>
+</html>

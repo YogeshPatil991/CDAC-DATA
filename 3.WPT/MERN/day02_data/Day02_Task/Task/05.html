@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+   <button id="menu" onclick="ShowHide()">Courses at Sunbeam</button>
+    <ul id="menuitems" style="display: none;">
+        <li>
+            <a href="#">
+                <div style="height: 20px;width: 70px; background-color: gray;">
+                    PGDAC
+                </div>
+            </a>
+        </li>
+        <li><a href="#">PGDMC</a></li>
+        <li><a href="#">PGDBDA</a></li>
+        <li><a href="#">PGDESD</a></li>
+        <li>
+            Workshops
+            <ul>
+                <li><a href="#">.NET</a></li>
+                <li><a href="#">MERN</a></li>
+                <li><a href="#">Java</a></li>
+                <li><a href="#">OS</a></li>
+            </ul>
+        </li>
+
+    </ul>
+
+    <script>
+        function ShowHide()
+        {
+            var refTomenuitems = document.getElementById("menuitems");
+            if (refTomenuitems.style.display =="none")
+            {
+                refTomenuitems.style.display ="block"
+            } 
+            else
+            {
+                refTomenuitems.style.display ="none"
+            }
+        }
+    </script>
+</body>
+</html>

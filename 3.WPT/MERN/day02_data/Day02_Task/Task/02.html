@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Contact Us</title>
+        <link rel="stylesheet" href="common.css">
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" id="txtName">
+                </td>
+                <td>
+                    <div id="errorDivForName" class="Astyle">
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input type="text" id="txtAddress">
+                </td>
+                <td>
+                    <div id="errorDivForAddress" class="Astyle">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <br>
+                    <input type="button" value="Click To Contact" onclick="Execute()">
+                </td>
+            </tr>
+        </table>        
+
+        <script src="validation.js"></script>
+        <script>
+            function Execute()
+            {
+                ValidateEmpty("txtName", "errorDivForName", "Name is needed.");
+                ValidateEmpty("txtAddress", "errorDivForAddress", "Address is needed.")
+            }
+
+ 
+        </script>
+    </body>
+</html>

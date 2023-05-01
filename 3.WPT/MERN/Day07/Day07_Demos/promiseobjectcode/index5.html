@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+    <script>
+        // function F11(data){
+        //     debugger;
+        //     console.log(data);
+        // }
+
+        // function F12(error){
+        //     debugger;
+        //     console.log(error);
+        // }
+
+        
+        function fetch(method,url)
+        {
+           return new Promise((resolve, reject)=>
+            {
+                debugger;
+                var helper = new XMLHttpRequest();
+                helper.onreadystatechange = ()=>{
+                    if(helper.readyState==4)
+                    {
+                    if(helper.status == 200)
+                    {
+                        var result =  
+                            JSON.parse(helper.responseText);
+                        resolve(result);
+                    }
+                    else
+                    {
+                        reject("Call To Server Failed!")
+                    }
+                    }
+
+                }
+                helper.open(method,url);
+                helper.send();
+            });
+        }
+
+        debugger;
+        // var promise = 
+        //      fetch("GET","https://reqres.in/api/users");
+        // promise.then(F11).catch(F12)
+
+
+        
+        // fetch("GET","https://reqres.in/api/users")
+        // .then(F11)
+        // .catch(F12)
+
+        fetch("GET","https://reqres.in/api/users")
+        .then((data)=>{console.log(data)})
+        .catch((error)=>{console.log(error)});
+
+        debugger;
+        //Check(F11, F12);
+    </script>
+</body>
+</html>

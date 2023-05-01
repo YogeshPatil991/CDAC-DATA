@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test JS</title>
+</head>
+<body>
+    Name:<input type="text" id="txtName" 
+                title="karad"> <br>
+    <div id="errorDivForName"></div><br>
+    Address:  <input type="text" id="txtAddress"
+                title="kolhapur"> <br>
+    Age:  <input type="number" id="txtAge"
+                title="nagpur"> <br>
+    EMail:  <input type="email" id="txtEMail"
+                title="pune"> <br>
+
+    <input type="button" id="btn" value="click me">
+
+    <!-- <script src="jquery-3.6.1.min.js"></script> -->
+    <script>
+            // $("#btn").click(()=>
+            // {
+            //     if($("#txtName").val() == "")
+            //     {
+            //         $("#errorDivForName").html(`<h2>Name is required</h2>`)
+            //     }
+            //     else
+            //     {
+            //         $("#errorDivForName").html('');
+            //     }
+            // })
+
+
+            $("#btn").click(()=>
+            {
+                // $("input[type='text']").css({"background-color": "yellow"})
+
+                // $("input[title='karad']").css({"background-color": "yellow"})
+
+                // $("input[title*='k']").css({"background-color": "yellow"})
+
+                // $("input[title*='p']").css({"background-color": "yellow"})
+               
+
+                // $("input[title$='r']").css({"background-color": "yellow"})
+
+                $("input[title^='k']").css({"background-color": "yellow"})
+               
+            })
+    </script>
+
+</body>
+</html>

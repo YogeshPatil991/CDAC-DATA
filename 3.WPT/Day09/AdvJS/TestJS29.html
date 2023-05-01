@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Storage</title>
+</head>
+<body>
+    <h1>First Page</h1>
+    <a href="TestJS30.html">Go to Next Page</a>
+    <br>
+    Name: <input type="text" id="txtName">
+    <br>
+    Kinda .. Books You Like: 
+    <input type="text" id="txtBookCategory">
+    <br>
+    <input type="button" value="Store the Information" onclick="Store()">
+
+    <script> 
+    
+    function Store()
+    {
+        var refToTxtName = 
+            document.getElementById("txtName");
+        var refToTxtBookCategory = 
+            document.getElementById("txtBookCategory");
+
+        var Name = refToTxtName.value;
+        var bookCategory = refToTxtBookCategory.value;
+
+        localStorage.setItem("CName", Name);
+        localStorage.setItem("CBooks", bookCategory);
+
+        window.location.href = "TestJS30.html";
+    }
+    
+    </script>
+</body>
+</html>

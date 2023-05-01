@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test XHR</title>
+</head>
+<body>
+    <button onclick="GetDataFromSomeServer()">
+            Get Data From Some Server</button>
+
+    
+
+    <script>
+        function GetDataFromSomeServer()
+        {
+            debugger;
+        var helperToCallServer = new XMLHttpRequest()   ;
+        //readyState = 0...Starting value of progress
+        helperToCallServer.onreadystatechange = ()=>{
+             //readyState = 4...we received a reply
+             //and status ==200 means successful reply 
+            if(helperToCallServer.readyState == 4 &&
+                helperToCallServer.status == 200)
+            {
+                debugger;
+                var dataReceived = 
+                JSON.parse(helperToCallServer.responseText)
+
+                var users = dataReceived.data;//is an array
+
+                users.map((user)=>{
+                    var message = 
+                            `Hello ${user.first_name}`
+                    console.log(message);
+                })
+;            }
+        };
+
+        helperToCallServer.open("GET",
+                               "https://reqres.in/api/users");
+        //readyState = 1...u created a packet
+        
+        helperToCallServer.send();
+        //readyState = 2...u have send a packet
+
+        //readyState = 3...u r waiting..for reply
+        }
+    </script>
+</body>
+</html>

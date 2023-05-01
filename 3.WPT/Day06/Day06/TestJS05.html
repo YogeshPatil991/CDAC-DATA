@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Div</title>
+    <style>
+        .mystyle{
+            color: red;
+            height: 500px;
+            width: 500px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="mystyle">abcd</div>
+    <br>
+    <input type="button" value="Click Me" onclick="SetMessage()">
+    
+    
+
+    <script>
+        function SetMessage()
+        {
+            debugger;
+            var refToMyDiv = 
+                    document.getElementById("myDiv");
+            //refToMyDiv.innerText="xyz";
+
+                var contents = `<img style="height:100px; 
+                                    width:100px" 
+                                    src="images/logo.jpg"> <br>`;
+            //refToMyDiv.innerHTML=contents;
+            refToMyDiv.innerText=contents;
+       
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div style="height:200px; width:200px; border:1px solid black" oncontextmenu="HandleMe(event)">
+        This is div This is div
+        This is div
+        This is div
+        This is div
+        This is div
+        This is div
+        This is div
+    </div>
+    <script>
+        function HandleMe(e)
+        {
+            e.preventDefault();
+            alert("Right click disabled.");
+        }
+    </script>
+</body>
+</html>

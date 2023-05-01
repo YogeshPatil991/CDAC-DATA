@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test JS</title>
+</head>
+<body>
+    <label for="txtName">Name:</label>     
+    <input type="text" id="txtName"> <br>
+   
+    Address:  <input type="text" id="txtAddress"> <br>
+    Age:  <input type="text" id="txtAge"> <br>
+    EMail:  <input type="text" id="txtEMail"> <br>
+
+    <input type="button" id="btn" value="click me">
+
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+    
+    $("#btn").click(function(){
+        $("input").css({"backgroundColor":"yellow"});
+    });
+
+    
+    </script>
+
+</body>
+</html>

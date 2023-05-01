@@ -1,0 +1,12 @@
+.myinputStyle
+{
+    border-style: solid;
+    border-width: 2px;
+    border-color: blue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.mycolumnStyle{
+    color: darkgreen;
+    font-weight:bolder;
+}

@@ -1,0 +1,151 @@
+<html>
+<head>
+    <title>Test Input Controls</title>
+</head>
+<body>
+    Name: <input type="text" id="txtName"> <br>
+    Gender: <input type="radio" name="radGender" value="1"> M
+            <input type="radio" name="radGender" value="2"> F
+            <input type="radio" name="radGender" value="3"> O
+            <br>
+            <div id="errorDivForGender" style="color:red"></div>
+            <br>
+    Country: <select id="cmbCountry">
+                <option name="#1" value="-1">Select Country</option>
+                <option name="#1" value="91">India</option>
+                <option name="#1" value="1">USA</option>
+                <option name="#1" value="44">UK</option>
+             </select>
+             <br>
+            <div id="errorDivForCountry" style="color:red"></div>
+            <br>
+
+    Hobbies: <select id="cmbHobby" multiple="multiple">
+                <option name="#" value="11">TT</option>
+                <option name="#" value="12">Cricket</option>
+                <option name="#" value="13">Reading</option>
+                <option name="#" value="14">Writing</option>
+                <option name="#" value="15">Trekking</option>
+             </select>
+             <br>
+             <div id="errorDivForHobby" style="color:red"></div>
+             <br>
+    <input type="checkbox" id="chkAgree" onchange="AgreementChanged()"> I Agree Terms and Conditions.
+    <br>
+    <div id="errorDivForAgr" style="color:red"></div>
+    <br>
+    <!-- <input type="button" value="Click Me" onclick="Validate()"> -->
+    <input type="button" id="btnCheck" value="Click Me" onclick="Validate()" disabled="disabled">
+    
+    <script>
+        function AgreementChanged()
+        {
+            var refTochkAgree = document.getElementById("chkAgree");
+            var refTobtnCheck = document.getElementById("btnCheck");
+
+            if(refTochkAgree.checked==true)
+            {
+                refTobtnCheck.disabled = null;
+                console.log("Thank you for agreement")
+            }
+            else
+            {
+                refTobtnCheck.disabled = 'disabled';
+                console.log("Maan Jao");
+            }
+        }
+        function Validate()
+        {
+             CheckIfGenderISelected();
+             CheckIfCountrySelected();
+             CheckIfHobbySelected();
+             CheckAgreeOrNot();
+           
+            debugger;
+        }
+        function CheckAgreeOrNot()
+        {
+            var refTochkAgree = document.getElementById("chkAgree");
+            var refToerrorDivForAgr = 
+                                document.getElementById("errorDivForAgr");
+
+            if(refTochkAgree.checked == true)
+            {
+                console.log("Thank you for agreement")
+                refToerrorDivForAgr.innerText = "";
+            }
+            else
+            {
+                refToerrorDivForAgr.innerText = "Please Agree to terms and conditions";
+            }
+        }
+        function CheckIfHobbySelected()
+        {
+            var refToCmbHobby = document.getElementById("cmbHobby");
+            var refToerrorDivForHobby = 
+                        document.getElementById("errorDivForHobby");
+            var allOptions = refToCmbHobby.children;
+            var selectedhobbies = '';
+            for(var i = 0; i< allOptions.length; i++)
+            {
+                var option = allOptions[i];
+                if(option.selected == true)
+                {
+                    selectedhobbies = selectedhobbies + option.value + ","
+                }
+            }
+            if(selectedhobbies!='')
+            {
+                console.log(`You selected hobbies like : ${selectedhobbies}`  )
+                refToerrorDivForHobby.innerText = "";
+            }
+            else
+            {
+                refToerrorDivForHobby.innerText = "Select hobby pls."
+            }
+        }
+        function CheckIfCountrySelected()
+        {
+            var refToCmbCountry = document.getElementById("cmbCountry");
+             var reftoerrorDivForCountry = 
+                            document.getElementById("errorDivForCountry");
+
+             if(refToCmbCountry.value=='-1')
+             {
+                reftoerrorDivForCountry.innerText = "Country is required."
+             }
+             else
+             {
+                reftoerrorDivForCountry.innerText = "";
+                console.log(`You selected country with value = ${refToCmbCountry.value}`);
+
+             }
+        }
+        function CheckIfGenderISelected()
+        {
+            var refToRadGender  = document.getElementsByName("radGender");
+           var refToerrorDivForGender = 
+                    document.getElementById("errorDivForGender");
+
+           var isGenderSelected = false;
+           for(var i = 0; i < refToRadGender.length; i++)
+           {
+            var refGender = refToRadGender[i];
+        
+            if(refGender.checked)
+            {
+                refToerrorDivForGender.innerText = "";
+                isGenderSelected = true;
+                console.log(`You selected Gender Value  ${refGender.value} `)
+                
+                break;
+            }
+           } 
+           if(isGenderSelected==false)
+           {
+            refToerrorDivForGender.innerText  = "select gender please."
+           }
+        }
+    </script>
+</body>
+</html>

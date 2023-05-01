@@ -1,0 +1,15 @@
+
+*Basics of functional programming
+
+ES5:
+ - Ways of creating class
+    : Literal syntax 
+    : constructor function syntax 
+
+
+ES6 Features
+ - let and const keywords
+ - arrow functions 
+ - map function for arrays / collections
+ - template literals
+ - class keyword for creating a class 

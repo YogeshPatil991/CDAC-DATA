@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <hr>
+    <table border="1" style="height: 600px; width:100%">
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sunbeam</td>
+            <td>Pune</td>
+            <td>PGDAC</td>
+        </tr>
+    </table>
+    
+    <script src="jquery-3.6.1.min.js"></script>
+
+    <script>
+        // $("#btn").click(()=>{
+        //     //$("tr").css({"backgroundColor": "green"});
+        //     // $("tr:even").css({"backgroundColor": "green"});
+        //     // $("tr:odd").css({"backgroundColor": "yellow"});
+        // });
+        $("tr").mouseover(function (){
+          $(this).css({"backgroundColor": "yellow"})
+        });
+
+        $("tr").mouseout(function (){
+          $(this).css({"backgroundColor": "white"})
+        });
+
+        $("tr").click(function (){
+          $(this).css({"backgroundColor": "green"});
+          $(this).unbind('mouseover mouseout');
+        });
+
+
+    </script>
+</body>
+</html>

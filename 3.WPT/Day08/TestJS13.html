@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Click Me To Start" onclick="Start()">
+    <input type="button" value="Click Me To Stop" onclick="Stop()">
+    <script>
+        var i = 0;
+        var tokenArray = new Array();
+
+        function Start()
+        {
+            var tokenNo=   window.setInterval(Print, 1000);
+            //debugger;
+        
+            tokenArray.push(tokenNo);
+
+            console.log("Queue Token No = " + tokenNo + " ***********")
+            //Print();
+        }
+
+        function Stop()
+        {
+            for(var k=0; k<tokenArray.length; k++)
+            {
+                var tokenNo = tokenArray[k];
+                window.clearInterval(tokenNo);
+            }
+          
+        }
+
+        function Print()
+        {
+            
+            i = i + 1;
+            console.log(i);
+        }
+        
+    </script>    
+</body>
+</html>

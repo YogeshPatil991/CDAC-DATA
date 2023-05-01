@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Plain JS Client</title>
+</head>
+<body>
+    
+   <center>
+    <table>
+        <tr>
+            <td>No</td>
+             <td><input id="txtNo" type="text"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+             <td><input id="txtName" type="text"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+             <td><input id="txtAddress" type="text"></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="SendData()">Send Data</button>
+            </td>
+            <td>
+                <button onclick="Update()">Update Data</button>
+            </td>
+            
+        </tr>
+        <tr>
+            <td> 
+                <button onclick="GetData()">Get Data</button>
+            </td>
+            <td>
+                <button onclick="Clear()">Clear</button>
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                <button onclick="GetData()">Refresh</button>
+            </td>
+            <td>
+                <!-- <button onclick="Clear()">Clear</button> -->
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <br>
+    <div id="container">
+        
+    </div>
+   </center>
+   
+ 
+    <script>
+
+        function Clear()
+        {
+            var refToTxtNo = document.getElementById("txtNo");
+            var refToTxtName = document.getElementById("txtName");
+            var refToTxtAddress = document.getElementById("txtAddress");
+            refToTxtNo.value = "";
+            refToTxtName.value = "";
+            refToTxtAddress.value = "";
+        }
+     
+        function Update()
+        {
+            debugger
+            var refToTxtNo = document.getElementById("txtNo");
+            var refToTxtName = document.getElementById("txtName");
+            var refToTxtAddress = document.getElementById("txtAddress");
+
+            var userObject = {
+                                "Name": refToTxtName.value,
+                                "Address": refToTxtAddress.value
+                             };
+            var userObjectInStringFormat = JSON.stringify(userObject);
+
+
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState == 4 && helper.status == 200)
+                {
+                var result =   JSON.parse( helper.responseText)
+                if(result.affectedRows > 0)
+                {
+                    alert("Record updated successfully!");
+                    Clear();
+                    GetData();
+                }
+                }
+            };
+         helper.open("PUT",`http://localhost:9999/users/${refToTxtNo.value}`);
+            helper.setRequestHeader("content-type","application/json")
+            debugger;
+            helper.send(userObjectInStringFormat);
+        }
+
+        function Delete(No)
+        {
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState == 4 && helper.status == 200)
+                {
+                 var result =   JSON.parse( helper.responseText);
+                 if(result.affectedRows>0)
+                 {
+                      alert("Record Removed Successfully!");
+                      GetData();
+                 }
+                }
+            };
+            helper.open("DELETE","http://localhost:9999/users/" + No);
+            helper.send();
+        }
+
+        function Edit(No)
+        {
+            var refToTxtNo = document.getElementById("txtNo");
+            var refToTxtName = document.getElementById("txtName");
+            var refToTxtAddress = document.getElementById("txtAddress");
+
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState == 4 && helper.status == 200)
+                {
+                 var result =   JSON.parse( helper.responseText);
+                 if(result.length > 0)
+                 {
+                    var userRecord = result[0];
+                    refToTxtNo.value = userRecord.No;
+                    refToTxtName.value = userRecord.Name;
+                    refToTxtAddress.value = userRecord.Address;
+                 }
+                }
+            };
+            helper.open("GET","http://localhost:9999/users/" + No);
+            helper.send();
+        }
+
+        function GetData(){
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState == 4 && helper.status == 200)
+                {
+                var result =   JSON.parse( helper.responseText)
+                //console.log(result);
+
+                var refTocontainer = document.getElementById("container");
+                refTocontainer.innerHTML = "";
+                result.map((user)=>{
+
+                    var template = `<div style="height:100px; width: 200px;
+                                                background-color: orange; ">
+                                        <br/>
+                                        No: ${user.No} <br/>
+                                        Name:  ${user.Name} <br/>
+                                        Address:  ${user.Address} <br/>
+                                        <button onclick=Edit(${user.No})>
+                                            Edit
+                                        </button>
+                                        <button onclick=Delete(${user.No})>
+                                            Delete
+                                        </button>
+                                    </div>
+                                    <hr>`
+                    refTocontainer.innerHTML = refTocontainer.innerHTML + template;
+                })
+                }
+            };
+            helper.open("GET","http://localhost:9999/users");
+            helper.send();
+        }
+
+        function SendData(){
+            var refToTxtNo = document.getElementById("txtNo");
+            var refToTxtName = document.getElementById("txtName");
+            var refToTxtAddress = document.getElementById("txtAddress");
+
+            var userObject = {
+                                "No" : parseInt(refToTxtNo.value),
+                                "Name": refToTxtName.value,
+                                "Address": refToTxtAddress.value
+                             };
+            var userObjectInStringFormat = JSON.stringify(userObject);
+
+
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState == 4 && helper.status == 200)
+                {
+                var result =   JSON.parse( helper.responseText)
+                if(result.affectedRows > 0)
+                {
+                    alert("Record inserted successfully!");
+                }
+                }
+            };
+            helper.open("POST","http://localhost:9999/users");
+            helper.setRequestHeader("content-type","application/json")
+            debugger;
+            helper.send(userObjectInStringFormat);
+        }
+    </script>
+</body>
+</html>

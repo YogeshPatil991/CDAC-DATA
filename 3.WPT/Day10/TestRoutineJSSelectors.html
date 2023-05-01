@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test JS</title>
+</head>
+<body>
+    <label for="txtName">Name:</label>     
+    <input type="text" id="txtName"> <br>
+   
+    Address:  <input type="text" id="txtAddress"> <br>
+    Age:  <input type="text" id="txtAge"> <br>
+    EMail:  <input type="text" id="txtEMail"> <br>
+
+    <input type="button" 
+           value="click me" onclick="DoSomething()">
+
+    <script>
+    function DoSomething()
+    {
+        var allInputControls =
+                 document.getElementsByTagName('input');
+
+        for(var i = 0; i < allInputControls.length; i++)
+        {
+            var oneInputControlAtATime =
+               allInputControls[i];
+               oneInputControlAtATime.style.backgroundColor = "yellow";
+        }
+        
+    }
+    </script>
+
+</body>
+</html>

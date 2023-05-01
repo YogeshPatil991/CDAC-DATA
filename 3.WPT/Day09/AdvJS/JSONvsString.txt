@@ -1,0 +1,10 @@
+
+Company - to Company varying format
+no=1, name="mahesh", age=42, address="pune" #
+no=2, name="chetan", age=48, address="chennai" #
+
+
+Java Script Object Notation (JSON)
+
+`[{no:1, name:"mahesh",age:42,address:"pune"},
+ {no:2, name:"nilesh",age:48,address:"pune"}]`
